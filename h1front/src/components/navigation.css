@@ -1,0 +1,76 @@
+.header {
+  grid-area: header;
+}
+
+.tasks-menu {
+  grid-area: tasksMenu;
+}
+
+.tasks {
+  grid-area: tasks;
+  max-height: 80vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+.tasks::-webkit-scrollbar {
+  width: 5px;
+  /* #1890ff */
+}
+.tasks::-webkit-scrollbar-thumb {
+  background-color: #90a4ae;
+  border-radius: 6px;
+}
+.tasks::-webkit-scrollbar-track {
+  background: #cfd8dc;
+}
+
+.buttonGrd {
+  grid-area: button;
+  text-align: end;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+.app-wrapper {
+  background-image: radial-gradient(#0099ff4d 1px, transparent 1px),
+    radial-gradient(#0099ff4d 1px, transparent 1px);
+  background-position: 0 0, 25px 25px;
+  background-size: 50px 50px;
+  min-height: 100vh;
+  max-height: 100vh;
+  display: grid;
+  grid-template-columns: 256px auto 10px;
+  grid-template-rows: 50px auto 64px 50px;
+  grid-template-areas:
+    "header header header"
+    "tasksMenu tasks none"
+    "button button button"
+    "footer footer footer";
+}
+.menuMobile {
+  display: none;
+}
+
+@media only screen and (max-width: 750px) {
+  .app-wrapper {
+    display: grid;
+    grid-template-columns: 80px auto 10px;
+    grid-template-rows: 50px auto 64px 50px;
+    grid-template-areas:
+      "header header header"
+      "tasksMenu tasks none"
+      "button button button"
+      "footer footer footer";
+  }
+  .menuMobile {
+    display: flex;
+    flex-flow: column;
+  }
+  .menuScreenWhole {
+    display: none;
+  }
+}
